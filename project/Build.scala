@@ -11,8 +11,8 @@ object XSDK extends Build {
 
   lazy val commonSettings = Defaults.defaultSettings ++ buildSettings
 
-  lazy val root = Project(id = "asn1gen", base = file("."))
-    .aggregate(asn1rt).settings(commonSettings: _*)
+  lazy val root = Project(id = "asn1kit", base = file("."))
+    .aggregate(asn1ast).settings(commonSettings: _*)
     .aggregate(asn1core).settings(commonSettings: _*)
     .aggregate(asn1gen).settings(commonSettings: _*)
     .aggregate(asn1jrt).settings(commonSettings: _*)
@@ -20,7 +20,7 @@ object XSDK extends Build {
     .aggregate(asn1runtime).settings(commonSettings: _*)
     .aggregate(asn1util).settings(commonSettings: _*)
     .aggregate(model).settings(commonSettings: _*)
-    .aggregate(rought).settings(commonSettings: _*)
+    .aggregate(rough).settings(commonSettings: _*)
 
   lazy val asn1ast = Project(id = "asn1ast", base = file("asn1ast"))
     .settings(commonSettings: _*)
