@@ -30,18 +30,25 @@ object XSDK extends Build {
 
   lazy val asn1gen = Project(id = "asn1gen", base = file("asn1gen"))
     .settings(commonSettings: _*)
+    .dependsOn(asn1core)
+    .dependsOn(asn1parse)
 
   lazy val asn1jrt = Project(id = "asn1jrt", base = file("asn1jrt"))
     .settings(commonSettings: _*)
 
   lazy val asn1parse = Project(id = "asn1parse", base = file("asn1parse"))
     .settings(commonSettings: _*)
+    .dependsOn(asn1ast)
+    .dependsOn(asn1core)
 
   lazy val asn1runtime = Project(id = "asn1runtime", base = file("asn1runtime"))
     .settings(commonSettings: _*)
+    .dependsOn(asn1core)
 
   lazy val asn1util = Project(id = "asn1util", base = file("asn1util"))
     .settings(commonSettings: _*)
+    .dependsOn(asn1gen)
+    .dependsOn(asn1runtime)
 
   lazy val model = Project(id = "model", base = file("model"))
     .settings(commonSettings: _*)
