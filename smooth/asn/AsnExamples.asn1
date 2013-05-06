@@ -1,0 +1,52 @@
+ASNEXAMPLES DEFINITIONS ::=
+BEGIN
+  BookCover ::= ENUMERATED {
+    hardCover,
+    paperBack
+  }
+  
+  BookPrice ::= SEQUENCE {
+    isbn OCTET STRING,
+    price INTEGER
+  }
+  
+  Book ::= SEQUENCE {
+    isbn OCTET STRING,
+    title OCTET STRING,
+    author OCTET STRING,
+    cover BookCover DEFAULT paperBack,
+    isInPrint BOOLEAN
+  }
+  
+  Books ::= SET OF Book
+  
+  BookPrices ::= SET OF Book
+  
+  Journal ::= SEQUENCE {
+  	title OCTET STRING,
+  	edition OCTET STRING
+  }
+  
+  Journals ::= SET OF Journal
+  
+  Item ::= CHOICE {
+  	book    [1] Book,
+  	journal [2] Journal
+  }
+  
+  Items ::= SET OF Item
+  
+  defaultBook Book ::= {
+    isbn "default isbn",
+    title "default title",
+    author "default author",
+    cover paperBack,
+    isInPrint TRUE
+  }
+  
+  defaultInteger INTEGER ::= 123
+  defaultBooleanTrue BOOLEAN ::= TRUE
+  defaultBooleanFalse BOOLEAN ::= FALSE
+  defaultOctetString OCTET STRING ::= "Hello world"
+  
+END
