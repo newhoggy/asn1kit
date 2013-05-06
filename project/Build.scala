@@ -19,7 +19,6 @@ object XSDK extends Build {
     .aggregate(asn1parse).settings(commonSettings: _*)
     .aggregate(asn1runtime).settings(commonSettings: _*)
     .aggregate(asn1util).settings(commonSettings: _*)
-    .aggregate(model).settings(commonSettings: _*)
     .aggregate(rough).settings(commonSettings: _*)
     .aggregate(smooth).settings(commonSettings: _*)
 
@@ -50,9 +49,6 @@ object XSDK extends Build {
     .settings(commonSettings: _*)
     .dependsOn(asn1gen)
     .dependsOn(asn1runtime)
-
-  lazy val model = Project(id = "model", base = file("model"))
-    .settings(commonSettings: _*)
 
   lazy val rough = Project(id = "rough", base = file("rough"))
     .settings(commonSettings: _*)
