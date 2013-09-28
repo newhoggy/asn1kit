@@ -3,13 +3,12 @@ package test.org.asn1gen.runtime.java;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
 
 import junit.framework.Assert;
 
 import org.asn1gen.runtime.java.BerWriter;
 import org.junit.Test;
-
-import scala.actors.threadpool.Arrays;
 
 public class TestBerWriter {
   @Test
